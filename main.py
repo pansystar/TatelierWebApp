@@ -7,3 +7,5 @@ app = Flask(__name__)
 def Hello():
     name = "pansystar"
     return app.send_static_file("index.html")
+
+app.run()
