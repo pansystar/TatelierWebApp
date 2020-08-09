@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 
 @app.route("/")
-def get_method():
+def hello():
     return render_template('index.html', name="")
 
 @app.route("/send", methods=["GET"])
@@ -16,8 +16,8 @@ def get_method():
 
 
 @app.route("/send", methods=["POST"])
-def get_method():
-    name = "GET!!!"
+def post_method():
+    name = "POST!!!"
     return render_template('index.html', name=name)
 
 if __name__ == "__main__":
