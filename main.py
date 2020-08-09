@@ -20,7 +20,14 @@ def get_method():
 
 @app.route("/send", methods=["POST"])
 def post_method():
-    name = "POST!!!"
+    # インサートする
+    id = request.form['id']
+    age = request.form['age']
+    name = request.form['name']
+
+    engine = create_engine('postgres://ozqqhdmuqezsca:a220c425e3f1a1ab567bdfb15625642cd33f3ca924a3846352923f45bf39d6ba@ec2-3-208-50-226.compute-1.amazonaws.com:5432/d4p1h3ane0mls4')  
+    df = pd.read_sql(sql='insert into pansydb (id, name, age) values (' + id + ',' + name + ',' + age +');', con=engine)
+    
     return render_template('index.html', name=name)
 
 if __name__ == "__main__":

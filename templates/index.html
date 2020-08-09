@@ -1,6 +1,14 @@
 <html>
+    <style>
+        input {
+            display: block;
+        }
+    </style>
     <body>Hello, Pansystar.  {{name}}</body>
     <form action="/send" method="POST">
+        ID:<input type="text" name="id"/>
+        名前:<input type="text" name="name" />
+        年齢:<input type="text" name="age" />
         <input type="submit" value="送信" />
     </form>
 </html>
