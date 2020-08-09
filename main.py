@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route("/")
 def Hello():
     name = "pansystar"
-    return "Hello"
+    return app.send_static_file('index.html')
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))
