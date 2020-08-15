@@ -49,20 +49,13 @@ def post_method():
     iD = request.form['id']
     age = request.form['age']
     name = request.form['name']
-
-    engine = create_engine('postgres://ozqqhdmuqezsca:a220c425e3f1a1ab567bdfb15625642cd33f3ca924a3846352923f45bf39d6ba@ec2-3-208-50-226.compute-1.amazonaws.com:5432/d4p1h3ane0mls4')  
     
-    arg = ""
+    t = text("insert into pansydb (id, user_name, age) values ("+ iD +", '"+ name +"', '" + age + "')")
 
-    try:
-        # read_sqlはread専用なので、insertなどは非推奨
-        # できてしまうが例外になるのでtry-exceptして対処
-        df = pd.read_sql(sql='insert into pansydb (id, user_name, age) values ('+ iD +', \'' + name + '\', '+ age +');', con=engine)
-        arg = "OK"
-    except:
-        arg = "except"
-    
-    return render_template('index.html', name=arg)
+    db.session.execute(t)
+    db.session.commit()
+
+    return render_template('index.html', name="OK")
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))
