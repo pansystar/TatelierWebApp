@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify
+from flask_sqlalchemy import SQLAlchemy
 import pandas as pd
 from sqlalchemy import *
 from sqlalchemy.orm import *
