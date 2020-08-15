@@ -32,7 +32,7 @@ def post_method():
     try:
         df = pd.read_sql(sql='insert into pansydb (id, user_name, age) values ('+ iD +', \'' + name + '\', '+ age +');', con=engine)
         arg = "OK"
-    except e:
+    except:
         arg = "except"
     
     return render_template('index.html', name=arg)
