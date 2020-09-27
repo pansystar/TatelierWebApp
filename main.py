@@ -22,12 +22,12 @@ class User(Base):
     user_name = Column(String)
     age = Column(String)
 
-@app.route("/login", methods=["GET"])
+@app.route("/login")
 def login():
     try:
         result = request.args.get('result')
     except e:
-        result = e
+        result = -1
     return '{"Result": '+result+'}'
 
 @app.route("/")
