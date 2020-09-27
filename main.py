@@ -28,7 +28,7 @@ def login():
         result = request.args.get('result')
     except:
         result = -1
-    return '{"Result": '+str(result)+', "Key":"165ED175E107494580D47E4F89C6907C" }'
+    return '{"Result": "'+str(result)+'", "Key":"165ED175E107494580D47E4F89C6907C" }'
 
 @app.route("/")
 def hello():
