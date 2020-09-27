@@ -22,6 +22,10 @@ class User(Base):
     user_name = Column(String)
     age = Column(String)
 
+@app.route("/login")
+def login():
+    return '{"Result": 0}'
+
 @app.route("/")
 def hello():
 
