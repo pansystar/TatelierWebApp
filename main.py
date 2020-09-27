@@ -24,7 +24,7 @@ class User(Base):
 
 @app.route("/login")
 def login():
-    return '{"Result": '+9+'}'
+    return '{"Result": 9}'
 
 @app.route("/")
 def hello():
