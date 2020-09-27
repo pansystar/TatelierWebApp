@@ -24,7 +24,10 @@ class User(Base):
 
 @app.route("/login", methods=["GET"])
 def login():
-    result = request.args.get('result')
+    try:
+        result = request.args.get('result')
+    except e:
+        result = e
     return '{"Result": '+result+'}'
 
 @app.route("/")
