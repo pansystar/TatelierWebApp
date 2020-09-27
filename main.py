@@ -22,9 +22,10 @@ class User(Base):
     user_name = Column(String)
     age = Column(String)
 
-@app.route("/login")
+@app.route("/login", methods=["GET"])
 def login():
-    return '{"Result": 0}'
+    result = request.args.get('result')
+    return '{"Result": '+result+'}'
 
 @app.route("/")
 def hello():
