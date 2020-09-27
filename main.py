@@ -24,7 +24,11 @@ class User(Base):
 
 @app.route("/login")
 def login():
-    return '{"Result": "9", "Key":"165ED175E107494580D47E4F89C6907C" }'
+    try:
+        result = request.args.get('result')
+    except:
+        result = -1
+    return '{"Result": '+str(result)+', "Key":"165ED175E107494580D47E4F89C6907C" }'
 
 @app.route("/")
 def hello():
